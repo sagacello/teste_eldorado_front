@@ -47,13 +47,13 @@ function Management() {
     <Grid 
       textAlign="center"
       style={{
-        height: '150vh',
+        height: '140vh',
         backgroundColor: 'rgb(52, 52, 52)',
-        marginTop: '-40vh',
+        marginTop: '-10vh',
       }}
       verticalAlign="middle"
     >
-      <Grid.Column  style={{ maxWidth: 700 }}>
+      <Grid.Column  style={{ maxWidth: 1000 }}>
         <CustomHeader message="Eldorado Management" />
         <CustomManagement />
         {!allContent ? null : renderContent()}
