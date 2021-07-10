@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import Context from './Context';
 
 function CentralContextProvider({ children }) {
-  const [isUsernameExist, setIsUsernameExist] = useState(false);
+  const [categoryId, setcategoryId] = useState();
 
   return (
     <Context.Provider
       value={ {
-        isUsernameExist,
-        setIsUsernameExist
+        categoryId,
+        setcategoryId
       } }
     >
       {children}
