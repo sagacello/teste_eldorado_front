@@ -7,15 +7,15 @@ import fetchDevices from '../services/getAllDevicesService';
 import fetchDeleteCategories from '../services/deleteCategoryFromId';
 import fetchCreateCategory from '../services/createCategory';
 import fetchCreateDevice from '../services/createDevice';
-import CustomModalDeveci from './CustomModalDevice';
-
+import CustomModalDevece from './CustomModalDevice';
+import fetchAllDevices from '../services/getAllDevicesService'
 import CustomModalCategory from './CustomModalCategory';
 
 const CustomManagement = () => {
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState(new Map());
-
   const { setcategoryId } = useContext(CentralContext);
+
 
   const filterCategory = async (id) => {
     const filterCategoryId = await fetchCategoriesFromId(id);
@@ -26,13 +26,13 @@ const CustomManagement = () => {
     await fetchDeleteCategories(id);
     const allCatgories = await fetchCategories();
     setCategories(allCatgories);
-    const filterCategoryAll = await fetchDevices();
-    setcategoryId(filterCategoryAll);
+    const filterAllCategory = await fetchDevices();
+    setcategoryId(filterAllCategory);
   };
 
   const allCategory = async () => {
-    const filterCategoryAll = await fetchDevices();
-    setcategoryId(filterCategoryAll);
+    const filterAllCategory = await fetchDevices();
+    setcategoryId(filterAllCategory);
   };
 
   useEffect(() => {
@@ -55,8 +55,7 @@ const CustomManagement = () => {
     const partNumber = formData.get('partNumber');
     const categoryId = formData.get('categoryId');
     await fetchCreateDevice(color, partNumber, categoryId);
-    const allCatgories = await fetchCategories();
-    setCategories(allCatgories);
+    await fetchAllDevices()
   };
 
   const handleInputChange = useCallback(({ target: { name, value } }) => {
@@ -120,7 +119,7 @@ const CustomManagement = () => {
         onHandleSubmit={handleSubmitCategory}
       />
 
-      <CustomModalDeveci
+      <CustomModalDevece
         formData={formData}
         onInputChange={handleInputChange}
         onHandleSubmit={handleSubmitDevice}
