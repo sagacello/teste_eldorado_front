@@ -53,3 +53,8 @@ Desafio:
   * As requisições são feitas com a biblioteca axios;
   * Para customização foi utilizado a biblioteca semantic-ui;
   * A arquitetura principal foi dividida em componentes e páginas, os componentes são chamados e renderizados na página principal que contém a maior parte da lógica da aplicação.
+
+## Para rodar a aplicação localmente 
+  * Clone o projeto e instale as dependências;
+  * Na pasta raiz:
+    - npm start
