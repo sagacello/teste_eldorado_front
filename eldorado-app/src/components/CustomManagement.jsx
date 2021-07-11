@@ -7,7 +7,7 @@ import fetchDevices from '../services/getAllDevicesService';
 import fetchDeleteCategories from '../services/deleteCategoryFromId';
 import fetchCreateCategory from '../services/createCategory';
 import fetchCreateDevice from '../services/createDevice';
-import CustomModalDevece from './CustomModalDevice';
+import CustomModalDevice from './CustomModalDevice';
 import fetchAllDevices from '../services/getAllDevicesService'
 import CustomModalCategory from './CustomModalCategory';
 
@@ -119,7 +119,7 @@ const CustomManagement = () => {
         onHandleSubmit={handleSubmitCategory}
       />
 
-      <CustomModalDevece
+      <CustomModalDevice
         formData={formData}
         onInputChange={handleInputChange}
         onHandleSubmit={handleSubmitDevice}
