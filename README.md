@@ -47,3 +47,9 @@ Desafio:
     - OBS: Não é necessario rodar os scripts de preenchimento do banco para os testes funcionarem;
     - npm test categories.test.js (para os testes das categorias);
     - npm test devices.test.js (para os testes dos dipositivos).
+    
+## Resolução do para o front-end
+  * Foi feito utilizando React e Context Api;
+  * As requisições são feitas com a biblioteca axios;
+  * Para customização foi utilizado a biblioteca semantic-ui;
+  * A arquitetura principal foi dividida em componentes e páginas, os componentes são chamados e renderizados na página principal que contém a maior parte da lógica da aplicação.
