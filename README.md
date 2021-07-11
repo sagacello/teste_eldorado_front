@@ -1,4 +1,5 @@
 # Introdução!
+
 ![grab-landing-page](https://j.gifs.com/jYZ8vW.gif)
 
 Desafio:
@@ -26,19 +27,19 @@ Desafio:
   * Node.js 
   * Angular
   * Mysql
- 
+### Este repositório contém o back-end da aplicação
 ## Resolução do para o back-end
-  * Para a persistência no banco de dados foi utilizado (ORM) sequelize;
-  * A arquitetura utilziada na aplicação foi a MSC
-  * Para as validações foi utilizada a biblioteca joi
-  * Os tests foram feitos utilizando jest e supertest
+  * Para a persistência no banco de dados foi utilizado (ORM) sequelize
+  * A arquitetura utilziada na aplicação foi a MSC(Models, Service, Controller)
+  * Para as validações foi utilizada a biblioteca "joi"
+  * Os tests foram feitos utilizando "jest" e "supertest"
  
 ## Esboço do relacionamneto do banco de dados
   ![Preview](https://github.com/sagacello/teste_eldorado/blob/main/esbo%C3%A7o_eldorado.png)
   
 ## Para rodar a o back-end da aplicação localmente
   * Clone o projeto e instale as dependências
-  * Coloque as suas configurações de acesso ao banco de dados no arquivo config.js dentro da src/config ou em um arquivo .env na raiz 
+  * Coloque as suas configurações de acesso ao banco de dados no arquivo config.js dentro da src/config ou em um arquivo .env  
   * Foram criados scripts que criam e populam o banco de dados:
     - npm run drop (para dropar o banco);
     - npm run create (para criar as migrations e models);
