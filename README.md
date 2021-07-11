@@ -35,7 +35,7 @@ Desafio:
 ## Esboço do relacionamneto do banco de dados
   ![Preview](https://github.com/sagacello/teste_eldorado/blob/main/esbo%C3%A7o_eldorado.png)
   
-## Para rodar a aplicação localmente
+## Para rodar a o back-end da aplicação localmente
   * Clone o projeto e instale as dependências
   * Coloque as suas configurações de acesso ao banco de dados no arquivo config.js dentro da src/config ou em um arquivo .env na raiz 
   * Foram criados scripts que criam e populam o banco de dados:
@@ -54,7 +54,8 @@ Desafio:
   * Para customização foi utilizado a biblioteca semantic-ui;
   * A arquitetura principal foi dividida em componentes e páginas, os componentes são chamados e renderizados na página principal que contém a maior parte da lógica da aplicação.
 
-## Para rodar a aplicação localmente 
+## Para rodar o front end da aplicação localmente 
   * Clone o projeto e instale as dependências;
-  * Na pasta raiz:
+  * Configure as rotas das requisições dentro da pasta service de acordo com sua porta;
+  * Na pasta raiz de o comando:
     - npm start
