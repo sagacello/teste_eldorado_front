@@ -1,14 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Menu, Dropdown, Icon, Button } from 'semantic-ui-react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
+import { Menu, Dropdown, Icon } from 'semantic-ui-react';
 import fetchCategories from '../services/getAllCategoriesService';
 import fetchCategoriesFromId from '../services/getCategoriesFromId';
 import CentralContext from '../context/Context';
 import fetchDevices from '../services/getAllDevicesService';
 import fetchDeleteCategories from '../services/deleteCategoryFromId';
+import fetchCreateCategory from '../services/createCategory';
+import fetchCreateDevice from '../services/createDevice';
+import CustomModalDeveci from './CustomModalDevice';
 
-const CustomManagement = ({ createCatgory, createDevice }) => {
+import CustomModalCategory from './CustomModalCategory';
+
+const CustomManagement = () => {
   const [categories, setCategories] = useState([]);
+  const [formData, setFormData] = useState(new Map());
+
   const { setcategoryId } = useContext(CentralContext);
 
   const filterCategory = async (id) => {
@@ -37,15 +43,37 @@ const CustomManagement = ({ createCatgory, createDevice }) => {
     fetch();
   }, []);
 
+  const handleSubmitCategory = async () => {
+    const nameCategory = formData.get('name');
+    await fetchCreateCategory(nameCategory);
+    const allCatgories = await fetchCategories();
+    setCategories(allCatgories);
+  };
+
+  const handleSubmitDevice = async () => {
+    const color = formData.get('color');
+    const partNumber = formData.get('partNumber');
+    const categoryId = formData.get('categoryId');
+    await fetchCreateDevice(color, partNumber, categoryId);
+    const allCatgories = await fetchCategories();
+    setCategories(allCatgories);
+  };
+
+  const handleInputChange = useCallback(({ target: { name, value } }) => {
+    setFormData((prevState) => new Map(prevState).set(name, value));
+  }, []);
+
   return (
-    <Menu  widths={3}>
-      <Menu.Item  style={{ padding: '2px', backgroundColor: 'rgb(200, 200, 200)' }} >
+    <Menu widths={3}>
+      <Menu.Item
+        style={{ padding: '2px', backgroundColor: 'rgb(200, 200, 200)' }}
+      >
         <Dropdown item icon="angle double down" simple>
-          <Dropdown.Menu  style={{ backgroundColor: 'rgb(230, 230, 230)' }}>
+          <Dropdown.Menu style={{ backgroundColor: 'rgb(230, 230, 230)' }}>
             <Dropdown.Item>
               <Icon name="dropdown" />
               <span className="text">Categories</span>
-              <Dropdown.Menu  style={{ backgroundColor: 'rgb(230, 230, 230)' }}>
+              <Dropdown.Menu style={{ backgroundColor: 'rgb(230, 230, 230)' }}>
                 <Dropdown.Item onClick={() => allCategory()}>All</Dropdown.Item>
                 {!categories ? (
                   <span className="text">Categories</span>
@@ -63,10 +91,10 @@ const CustomManagement = ({ createCatgory, createDevice }) => {
                 )}
               </Dropdown.Menu>
             </Dropdown.Item>
-            <Dropdown.Item >
+            <Dropdown.Item>
               <Icon name="dropdown" />
               <span className="text">Delete Category</span>
-              <Dropdown.Menu  style={{ backgroundColor: 'rgb(230, 230, 230)' }}>
+              <Dropdown.Menu style={{ backgroundColor: 'rgb(230, 230, 230)' }}>
                 {!categories ? (
                   <span className="text">Delete Category</span>
                 ) : (
@@ -86,8 +114,17 @@ const CustomManagement = ({ createCatgory, createDevice }) => {
           </Dropdown.Menu>
         </Dropdown>
       </Menu.Item>
-      <Menu.Item  onClick={() => createCatgory()} name="Create Category" />
-      <Menu.Item onClick={() => createDevice()} name="Create Device" />
+      <CustomModalCategory
+        formData={formData}
+        onInputChange={handleInputChange}
+        onHandleSubmit={handleSubmitCategory}
+      />
+
+      <CustomModalDeveci
+        formData={formData}
+        onInputChange={handleInputChange}
+        onHandleSubmit={handleSubmitDevice}
+      />
     </Menu>
   );
 };

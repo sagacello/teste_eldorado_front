@@ -50,30 +50,26 @@ function Management() {
   );
 
   return (
-    <div style={{  marginTop: '5%', }}>
-    <Transition.Group  animation="browse" duration="4500" alt="logo-eldorado">
-        {visible && (
-          <Image centered size="medium" src={ logo } />
-        )}
+    <div style={{ marginTop: '5%' }}>
+      <Transition.Group animation="browse" duration="4500">
+        {visible && <Image centered size="medium" src={logo} />}
       </Transition.Group>
-    <Grid
-      textAlign="center"
-      style={{
-        height: '150vh',
-        backgroundColor: 'rgb(33, 33, 33)',
-        marginTop: '-30vh',
-      }}
-      verticalAlign="middle"
-    >
-      
-      <Grid.Column style={{ maxWidth: 1000 }}>
-      <CustomHeader message="ELDORADO MANAGEMENT"/>
+      <Grid
+        textAlign="center"
+        style={{
+          height: '150vh',
+          backgroundColor: 'rgb(33, 33, 33)',
+          marginTop: '-30vh',
+        }}
+        verticalAlign="middle"
+      >
+        <Grid.Column style={{ maxWidth: 1000 }}>
+          <CustomHeader message="ELDORADO MANAGEMENT" />
 
-        <CustomManagement />
-        {!allContent ? null : renderContent()}
-      </Grid.Column>
-    </Grid>
-    
+          <CustomManagement />
+          {!allContent ? null : renderContent()}
+        </Grid.Column>
+      </Grid>
     </div>
   );
 }
