@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default async function fetchCreateDevice(color, partNumber, categoryId) {
-  const requestUserUrl = 'http://localhost:3001/device';
+  const requestUserUrl = 'http://localhost:3001/devices';
 
   const requestHeader = {
     'Content-Type': 'application/json',

@@ -50,20 +50,20 @@ function Management() {
   );
 
   return (
-    <div style={{ marginTop: '5%' }}>
+    <div style={{ marginTop: '2%' }}>
       <Transition.Group animation="browse" duration="4500">
         {visible && <Image centered size="medium" src={logo} />}
       </Transition.Group>
       <Grid
         textAlign="center"
         style={{
-          height: '150vh',
+          height: '170vh',
           backgroundColor: 'rgb(33, 33, 33)',
           marginTop: '-30vh',
         }}
         verticalAlign="middle"
       >
-        <Grid.Column style={{ maxWidth: 1000 }}>
+        <Grid.Column style={{ maxWidth: 1100, marginTop: '-10px' }}>
           <CustomHeader message="ELDORADO MANAGEMENT" />
 
           <CustomManagement />
