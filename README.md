@@ -1,5 +1,5 @@
 # Introdução!
-https://gifs.com/gif/teste-eldorado-jYZ8vW
+![grab-landing-page](https://j.gifs.com/jYZ8vW.gif)
 
 Desafio:
   - Desenvolva uma aplicação web de gerenciamento de dispositivo simples.
