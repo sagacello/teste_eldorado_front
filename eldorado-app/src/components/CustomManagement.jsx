@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Menu, Dropdown, Icon } from 'semantic-ui-react';
+import { Menu, Dropdown, Icon, Button } from 'semantic-ui-react';
 import fetchCategories from '../services/getAllCategoriesService';
 import fetchCategoriesFromId from '../services/getCategoriesFromId';
 import CentralContext from '../context/Context';
